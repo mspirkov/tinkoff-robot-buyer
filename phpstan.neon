@@ -1,12 +1,17 @@
+includes:
+    - vendor/mspirkov/yii2-phpstan/extension.neon
+
 parameters:
-    level: 2
+    level: 3
     paths:
+        - assets
         - commands
         - components
         - controllers
         - helpers
+        - mail
         - models
-        - assets
+        - views
         - widgets
     bootstrapFiles:
         - vendor/yiisoft/yii2/Yii.php
@@ -14,3 +19,43 @@ parameters:
         analyse:
             - components/application/Application.php
     tmpDir: runtime/phpstan
+
+    mspirkovYii2:
+        enableAllRules: false
+        enableValidationRules: true
+        applicationConfigs:
+            -
+                paths:
+                    - commands
+                    - components
+                    - helpers
+                    - models
+                files:
+                    - config/console.php
+            -
+                paths:
+                    - assets
+                    - components/web
+                    - controllers
+                    - views
+                    - widgets
+                files:
+                    - config/web.php
+        yiiAppTypes:
+            -
+                paths:
+                    - commands
+                    - components
+                    - helpers
+                    - models
+                type: yii\console\Application
+                nullable: false
+            -
+                paths:
+                    - assets
+                    - components/web
+                    - controllers
+                    - views
+                    - widgets
+                type: yii\web\Application
+                nullable: false

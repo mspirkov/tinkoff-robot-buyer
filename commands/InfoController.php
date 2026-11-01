@@ -358,7 +358,6 @@ class InfoController extends BaseController
                 $account_name = '-';
 
                 /** @var Account $account_model */
-                /** @var GetAccountsResponse $response */
                 foreach ($response->getAccounts() as $account_model) {
                     if ($account_model->getId() === $account_id) {
                         $account_name = $account_model->getName();

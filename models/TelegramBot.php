@@ -4,6 +4,7 @@ namespace app\models;
 
 use Exception;
 use SonkoDmitry\Yii\TelegramBot\Component as TelegramBotApi;
+use SonkoDmitry\Yii\TelegramBot\Component;
 use Throwable;
 use Yii;
 use yii\base\Model;
@@ -32,7 +33,7 @@ class TelegramBot extends Model
      * @param string $account
      * @param bool $refresh Флаг необходимости обновить ранее полученный экземпляр клиента
      *
-     * @return array|null[] Массив вида
+     * @return array{Component|null, string|null} Массив вида
      *  <pre>
      *     [{@link TelegramBotApi} $client, (string) $chat_id]
      *  </pre>
