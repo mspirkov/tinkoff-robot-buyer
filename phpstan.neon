@@ -27,9 +27,7 @@ parameters:
             -
                 paths:
                     - commands
-                    - components
-                    - helpers
-                    - models
+                    - components/console
                 files:
                     - config/console.php
             -
@@ -44,10 +42,13 @@ parameters:
         yiiAppTypes:
             -
                 paths:
+                    - .
+                type: yii\console\Application|yii\web\Application
+                nullable: false
+            -
+                paths:
                     - commands
-                    - components
-                    - helpers
-                    - models
+                    - components/console
                 type: yii\console\Application
                 nullable: false
             -
